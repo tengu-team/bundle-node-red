@@ -1,0 +1,67 @@
+applications:
+  "mongodb":
+    charm: "cs:mongodb-43"
+    num_units: 1
+    options:
+      volume-map: "{}"
+    to:
+      - "1"
+  "activemq":
+    charm: "/home/sebastien/charms/xenial/activemq"
+    num_units: 1
+    expose: true
+    to:
+      - "1"
+  "tengu-topic":
+    charm: "/home/sebastien/charms/xenial/activemq-topic"
+  "rss-feed":
+    charm: "/home/sebastien/charms/xenial/data-source"
+    num_units: 1
+    to:
+      - "lxd:0"
+  "tengu-db":
+    charm: "/home/sebastien/charms/xenial/mongo-database"
+  "nodered-deployer":
+    charm: "/home/sebastien/charms/xenial/nodered-deployer"
+  "nodered":
+    charm: "/home/sebastien/charms/xenial/node-red"
+    num_units: 1
+    expose: true
+    to:
+      - "2"
+  "activemq-flow":
+    charm: "/home/sebastien/charms/xenial/activemq-flow"
+    num_units: 1
+    to:
+      - "lxd:0"
+  "bundle-api":
+    charm: "/home/sebastien/charms/xenial/streambundle-api"
+    num_units: 1
+    expose: true
+    to:
+      - "0"
+relations:
+  - - "tengu-db:mongodb"
+    - "mongodb:database"
+  - - "activemq:messagebroker"
+    - "tengu-topic:messagebroker" 
+  - - "rss-feed:topic"
+    - "tengu-topic:activemqtopic"
+  - - "nodered:juju-info"
+    - "nodered-deployer:nodered"
+  - - "activemq-flow:dataflow"
+    - "nodered-deployer:dataflow"
+  - - "activemq-flow:topic"
+    - "tengu-topic:activemqtopic"
+  - - "activemq-flow:db"
+    - "tengu-db:db"
+  - - "bundle-api:db"
+    - "tengu-db:db"
+machines:
+  "0":
+    series: xenial
+  "1":
+    series: xenial
+  "2":
+    series: xenial
+
