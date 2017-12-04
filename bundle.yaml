@@ -1,3 +1,4 @@
+series: xenial
 applications:
   "mongodb":
     charm: "cs:mongodb-43"
