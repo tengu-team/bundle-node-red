@@ -1,0 +1,6 @@
+{
+  "name"    : "Node-RED streaming",
+  "summary" : "This Workspace contains Node-RED, MongoDB and ActiveMQ. The interface of Node-RED make sit possible to create your own workflows and to explore your data.",
+  "tags"    : ["streaming"]
+}
+
