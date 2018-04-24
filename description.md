@@ -1,6 +1,6 @@
 ## Workspace components
 
-![schema](https://github.com/tengu-team/bundle-node-red/blob/master/schema.png?raw=true  =100%)
+![schema](https://github.com/tengu-team/bundle-node-red/blob/master/schema.png?raw=true)
 
 This Bundle consists of three key components to start using our predefined dataflow of to start experimenting and create your own dataflows.
 
