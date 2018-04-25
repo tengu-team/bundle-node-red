@@ -1,6 +1,6 @@
 {
-  "name"    : "Node-RED streaming",
-  "summary" : "This Workspace contains Node-RED, MongoDB and ActiveMQ. The interface of Node-RED make sit possible to create your own workflows and to explore your data.",
+  "name"    : "Create Custom Data Flows",
+  "summary" : "Get started with stream processing in Node-RED. We guide the way with a small example receiving StackOverflow posts and filter them into a MongoDB data store.",
   "tags"    : ["streaming"]
 }
 
